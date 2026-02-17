@@ -10,52 +10,93 @@ import { LinearGradient } from "expo-linear-gradient";
 import { router } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { HeaderHeightContext } from "@react-navigation/elements";
+import { FontAwesome } from "@expo/vector-icons";
 
 export default function HomeScreen() {
   return (
     <ScrollView style={styles.screenLayout}>
       <View style={styles.headerContainer}>
-        <Text style={styles.headerText}>Top 5 Trending</Text>
+        <Text style={styles.headerText}>Study</Text>
+        <View style={styles.textContainer}>
+          <Text style={{ color: "black", fontSize: 32, fontWeight: "bold" }}>
+            hub
+          </Text>
+        </View>
       </View>
       <View style={styles.cardContainer}>
-        <TouchableOpacity onPress={() => router.push("/dan")}>
+        <TouchableOpacity
+          style={styles.cardWrapper}
+          onPress={() => router.push("/dan")}
+        >
           <Image
             source={require("../../assets/images/dan.jpg")}
             style={styles.profileImage}
             resizeMode="cover"
           />
+          <View style={styles.nameContainer}>
+            <Text style={styles.nameText}>Dan Anton Bejec</Text>
+            <FontAwesome name="check-circle" size={24} color="#ffa31a" />
+          </View>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={() => router.push("/dan")}>
+        <TouchableOpacity
+          style={styles.cardWrapper}
+          onPress={() => router.push("/dan")}
+        >
           <Image
             source={require("../../assets/images/jods.png")}
             style={styles.profileImage}
             resizeMode="cover"
           />
+          <View style={styles.nameContainer}>
+            <Text style={styles.nameText}>Jodice Pacibe</Text>
+            <FontAwesome name="check-circle" size={24} color="#ffa31a" />
+          </View>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={() => router.push("/dan")}>
+        <TouchableOpacity
+          style={styles.cardWrapper}
+          onPress={() => router.push("/dan")}
+        >
           <Image
             source={require("../../assets/images/roy.jpg")}
             style={styles.profileImage}
             resizeMode="cover"
           />
+          <View style={styles.nameContainer}>
+            <Text style={styles.nameText}>Roy Adrian Rondina</Text>
+            <FontAwesome name="check-circle" size={24} color="#ffa31a" />
+          </View>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={() => router.push("/dan")}>
+        <TouchableOpacity
+          style={styles.cardWrapper}
+          onPress={() => router.push("/dan")}
+        >
           <Image
             source={require("../../assets/images/ed.png")}
             style={styles.profileImage}
             resizeMode="cover"
           />
+          <View style={styles.nameContainer}>
+            <Text style={styles.nameText}>Edmark Talingting</Text>
+            <FontAwesome name="check-circle" size={24} color="#ffa31a" />
+          </View>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={() => router.push("/dan")}>
+        <TouchableOpacity
+          style={styles.cardWrapper}
+          onPress={() => router.push("/dan")}
+        >
           <Image
             source={require("../../assets/images/enzo.jpg")}
             style={styles.profileImage}
             resizeMode="cover"
           />
+          <View style={styles.nameContainer}>
+            <Text style={styles.nameText}>John Lorenzo Flores</Text>
+            <FontAwesome name="check-circle" size={24} color="#ffa31a" />
+          </View>
         </TouchableOpacity>
       </View>
     </ScrollView>
@@ -66,30 +107,52 @@ const styles = StyleSheet.create({
   screenLayout: {
     flex: 1,
     backgroundColor: "#1b1b1b",
-    padding: 50,
   },
   headerContainer: {
+    flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
     marginBottom: 20,
+    backgroundColor: "#292929",
+    padding: 20,
+    gap: 5,
   },
   headerText: {
     color: "white",
     fontSize: 32,
     fontWeight: "bold",
-    textAlign: "center",
+  },
+  textContainer: {
+    backgroundColor: "#ffa31a",
+    borderRadius: 5,
+    paddingHorizontal: 5,
   },
   cardContainer: {
-    justifyContent: "center",
-    alignItems: "center",
+    flexDirection: "row", 
+    flexWrap: "wrap", 
+    justifyContent: "center", 
     gap: 20,
-    paddingBottom: 50, // Add padding at bottom for better scrolling
+    padding: 20,
+  },
+  cardWrapper: {
+    minWidth: 280, 
+    maxWidth: 350, 
+    flex: 1, 
+    gap: 5,
   },
   profileImage: {
-    width: 200,
+    width: "100%",
     height: 200,
-    borderColor: "black",
-    borderWidth: 1,
-    borderRadius: 15,
+    borderRadius: 5,
+  },
+  nameContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
+  nameText: {
+    fontSize: 16,
+    color: "white",
+    flex: 1,
   },
 });
