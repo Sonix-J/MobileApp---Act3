@@ -1,4 +1,11 @@
-import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  Image,
+  TouchableOpacity,
+  ScrollView,
+} from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import { router } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -7,10 +14,12 @@ import { FontAwesome } from "@expo/vector-icons";
 
 export default function Index2() {
   return (
-    <View style={styles.screenLayout}>
+    <ScrollView
+      style={styles.screenLayout}
+      contentContainerStyle={styles.scrollContent}
+    >
       <View style={styles.headerContainer}>
         <TouchableOpacity onPress={() => router.push("/")}>
-          {/* <Text style={{ color: "white" }}>Back</Text> */}
           <FontAwesome name="arrow-left" size={24} color="white" />
         </TouchableOpacity>
         <View style={{ flexDirection: "row", gap: 5 }}>
@@ -22,6 +31,7 @@ export default function Index2() {
           </View>
         </View>
       </View>
+
       <View style={styles.profileContainer}>
         <Image
           source={require("../../assets/images/dan.jpg")}
@@ -37,28 +47,72 @@ export default function Index2() {
           </Text>
         </View>
       </View>
+
       <View style={styles.personInfo}>
-        <Text style={{ color: "white", fontSize: 16 }}>Age: 87</Text>
-        <Text style={{ color: "white", fontSize: 16 }}>
-          Address: Canada, Chicago, France
-        </Text>
-        <Text style={{ color: "white", fontSize: 16 }}>Height: 9'0</Text>
-        <View style={styles.socials}>
-          <FontAwesome name="facebook" size={24} color="#ffa31a" />
-          <FontAwesome name="instagram" size={24} color="#ffa31a" />
+        <View>
+          <Text style={{ color: "white", fontSize: 16 }}>Age: 87</Text>
+          <Text style={{ color: "white", fontSize: 16 }}>
+            Address: Canada, Chicago, France
+          </Text>
+          <Text style={{ color: "white", fontSize: 16 }}>Height: 9'0</Text>
+        </View>
+        <View>
+          <View style={styles.socials}>
+            <FontAwesome name="facebook" size={24} color="#ffa31a" />
+            <FontAwesome name="instagram" size={24} color="#ffa31a" />
+          </View>
         </View>
       </View>
-    </View>
+
+      <View style={styles.galleryContainer}>
+        <Text style={{ fontSize: 24, color: "white", fontWeight: "bold" }}>
+          Uploaded Pictures
+        </Text>
+
+        <View style={styles.galleryRow}>
+          {/* Left: uploaded pictures grid */}
+          <View style={styles.gallery}>
+            <Image
+              source={require("../../assets/images/danUpload1.jpg")}
+              style={styles.uploadedPics}
+            />
+            <Image
+              source={require("../../assets/images/danUpload2.jpg")}
+              style={styles.uploadedPics}
+            />
+            <Image
+              source={require("../../assets/images/danUpload3.jpg")}
+              style={styles.uploadedPics}
+            />
+            <Image
+              source={require("../../assets/images/danUpload4.jpg")}
+              style={styles.uploadedPics}
+            />
+          </View>
+
+          {/* Right: ads */}
+          <View style={styles.adsContainer}>
+            <Text style={{ color: "white" }}>Ads</Text>
+            <Image
+              source={require("../../assets/images/ads.jpg")}
+              style={styles.uploadedPics}
+            />
+          </View>
+        </View>
+      </View>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
   screenLayout: {
-    display: "flex",
     flex: 1,
     backgroundColor: "#1b1b1b",
+  },
+  scrollContent: {
     flexDirection: "column",
     gap: 20,
+    paddingBottom: 40,
   },
   headerContainer: {
     flexDirection: "row",
@@ -85,7 +139,6 @@ const styles = StyleSheet.create({
   },
   profileInfoContainer: {
     gap: 10,
-    // justifyContent: "center",
     flex: 1,
     flexShrink: 1,
   },
@@ -106,17 +159,42 @@ const styles = StyleSheet.create({
   },
   personInfo: {
     padding: 20,
-    flex: 1,
-    borderWidth: 1,
-    borderColor: "#ffa31a",
-    borderRadius: 15,
     gap: 20,
+    borderTopWidth: 1,
+    borderTopColor: "#ffa31a",
+    justifyContent: "space-between",
+    flexDirection: "row",
   },
   socials: {
-    display: "flex",
     flexDirection: "row",
     gap: 15,
-    justifyContent: "center",
-    alignContent: "center",
+  },
+  galleryContainer: {
+    padding: 20,
+    gap: 20,
+  },
+  galleryRow: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "flex-start",
+  },
+  gallery: {
+    flexDirection: "row",
+    gap: 10,
+    flexWrap: "wrap",
+    justifyContent: "flex-start",
+    alignContent: "flex-start",
+    flex: 1,
+    marginRight: 10,
+  },
+  adsContainer: {
+    alignItems: "flex-end",
+    gap: 10,
+  },
+  uploadedPics: {
+    width: 150,
+    height: 200,
+    resizeMode: "cover",
+    borderColor: "black",
   },
 });
