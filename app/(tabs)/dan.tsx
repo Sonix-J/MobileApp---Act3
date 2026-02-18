@@ -63,7 +63,10 @@ export default function Index2() {
           </View>
         </View>
       </View>
-
+      <View style={styles.adsContainer1}>
+        <Text style={{ color: 'white', fontSize: 24, fontWeight: 'bold' }}>Dan wants to link up with you.</Text>
+        <Text style={{ color: 'white', fontSize: 16 }}>Dan is 5 minutes away from your location.</Text>
+      </View>
       <View style={styles.galleryContainer}>
         <Text style={{ fontSize: 24, color: "white", fontWeight: "bold" }}>
           Uploaded Pictures
@@ -91,12 +94,13 @@ export default function Index2() {
           </View>
 
           {/* Right: ads */}
-          <View style={styles.adsContainer}>
+          <View style={styles.adsContainer2}>
             <Text style={{ color: "white" }}>Ads</Text>
             <Image
               source={require("../../assets/images/ads.jpg")}
               style={styles.uploadedPics}
             />
+            <Text style={{ color: "white", textAlign: 'center' }}>Gusto mo ba lumaki ang iyong</Text>
           </View>
         </View>
       </View>
@@ -187,9 +191,14 @@ const styles = StyleSheet.create({
     flex: 1,
     marginRight: 10,
   },
-  adsContainer: {
-    alignItems: "flex-end",
-    gap: 10,
+  adsContainer1: {
+    backgroundColor: 'black',
+    padding: 10,
+    gap: 20
+  },
+  adsContainer2: {
+    gap: 5,
+    width: 150
   },
   uploadedPics: {
     width: 150,
