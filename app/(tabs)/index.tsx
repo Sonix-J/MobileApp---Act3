@@ -29,7 +29,7 @@ export default function HomeScreen() {
           onPress={() => router.push("/dan")}
         >
           <Image
-            source={require("../../assets/images/dan.jpg")}
+            source={require("../../assets/images/danImg/dan.jpg")}
             style={styles.profileImage}
             resizeMode="cover"
           />
@@ -44,7 +44,7 @@ export default function HomeScreen() {
           onPress={() => router.push("/dan")}
         >
           <Image
-            source={require("../../assets/images/jods.png")}
+            source={require("../../assets/images/jodsImg/jods.png")}
             style={styles.profileImage}
             resizeMode="cover"
           />
@@ -59,7 +59,7 @@ export default function HomeScreen() {
           onPress={() => router.push("/dan")}
         >
           <Image
-            source={require("../../assets/images/roy.jpg")}
+            source={require("../../assets/images/royImg/roy.jpg")}
             style={styles.profileImage}
             resizeMode="cover"
           />
@@ -71,10 +71,10 @@ export default function HomeScreen() {
 
         <TouchableOpacity
           style={styles.cardWrapper}
-          onPress={() => router.push("/dan")}
+          onPress={() => router.push("/ed")}
         >
           <Image
-            source={require("../../assets/images/ed.png")}
+            source={require("../../assets/images/edImg/ed.png")}
             style={styles.profileImage}
             resizeMode="cover"
           />
@@ -89,7 +89,7 @@ export default function HomeScreen() {
           onPress={() => router.push("/dan")}
         >
           <Image
-            source={require("../../assets/images/enzo.jpg")}
+            source={require("../../assets/images/enzoImg/enzo.jpg")}
             style={styles.profileImage}
             resizeMode="cover"
           />
