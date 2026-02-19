@@ -56,7 +56,7 @@ export default function HomeScreen() {
 
         <TouchableOpacity
           style={styles.cardWrapper}
-          onPress={() => router.push("/dan")}
+          onPress={() => router.push("/roy")}
         >
           <Image
             source={require("../../assets/images/royImg/roy.jpg")}
