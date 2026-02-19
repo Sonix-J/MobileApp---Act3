@@ -37,11 +37,12 @@ export default function HomeScreen() {
             <Text style={styles.nameText}>Dan Anton Bejec</Text>
             <FontAwesome name="check-circle" size={24} color="#ffa31a" />
           </View>
+          <Text style={{ color: 'white', fontSize: 12}}>Nag-Marites sa Gabi, Nabisto ang Katabi!</Text>
         </TouchableOpacity>
 
         <TouchableOpacity
           style={styles.cardWrapper}
-          onPress={() => router.push("/dan")}
+          onPress={() => router.push("/jods")}
         >
           <Image
             source={require("../../assets/images/jodsImg/jods.png")}
@@ -52,6 +53,7 @@ export default function HomeScreen() {
             <Text style={styles.nameText}>Jodice Pacibe</Text>
             <FontAwesome name="check-circle" size={24} color="#ffa31a" />
           </View>
+          <Text style={{ color: 'white', fontSize: 12}}>Sa Kanto Nagkwento, Sa Huli May Eskandalo!</Text>
         </TouchableOpacity>
 
         <TouchableOpacity
@@ -67,6 +69,7 @@ export default function HomeScreen() {
             <Text style={styles.nameText}>Roy Adrian Rondina</Text>
             <FontAwesome name="check-circle" size={24} color="#ffa31a" />
           </View>
+          <Text style={{ color: 'white', fontSize: 12}}>Sa Story Nag-Glory, Sa Huli May Sorry!</Text>
         </TouchableOpacity>
 
         <TouchableOpacity
@@ -82,6 +85,7 @@ export default function HomeScreen() {
             <Text style={styles.nameText}>Edmark Talingting</Text>
             <FontAwesome name="check-circle" size={24} color="#ffa31a" />
           </View>
+          <Text style={{ color: 'white', fontSize: 12}}>May Mister sa Dilim, May Lihim sa Ilalim!</Text>
         </TouchableOpacity>
 
         <TouchableOpacity
@@ -97,6 +101,7 @@ export default function HomeScreen() {
             <Text style={styles.nameText}>John Lorenzo Flores</Text>
             <FontAwesome name="check-circle" size={24} color="#ffa31a" />
           </View>
+          <Text style={{ color: 'white', fontSize: 12}}>Si Kabit na Makulit, Nahuli sa Sulok ng Pilit!</Text>
         </TouchableOpacity>
       </View>
     </ScrollView>
