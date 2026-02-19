@@ -86,7 +86,7 @@ export default function HomeScreen() {
 
         <TouchableOpacity
           style={styles.cardWrapper}
-          onPress={() => router.push("/dan")}
+          onPress={() => router.push("/enzo")}
         >
           <Image
             source={require("../../assets/images/enzoImg/enzo.jpg")}
