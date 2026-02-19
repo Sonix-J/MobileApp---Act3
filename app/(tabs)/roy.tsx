@@ -34,11 +34,11 @@ export default function Index2() {
 
       <View style={styles.profileContainer}>
         <Image
-          source={require("../../assets/images/danImg/dan.jpg")}
+          source={require("../../assets/images/royImg/roy.jpg")}
           style={styles.profileImage}
         />
         <View style={styles.profileInfoContainer}>
-          <Text style={styles.profileText}>Dan Bejec Anton</Text>
+          <Text style={styles.profileText}>Roy Adrian Rondina</Text>
           <Text style={{ fontSize: 16, color: "#d6d3d3", fontWeight: "bold" }}>
             3rd Year - BSIT Student
           </Text>
@@ -64,8 +64,8 @@ export default function Index2() {
         </View>
       </View>
       <View style={styles.adsContainer1}>
-        <Text style={{ color: 'white', fontSize: 24, fontWeight: 'bold' }}>Dan wants to link up with you.</Text>
-        <Text style={{ color: 'white', fontSize: 16 }}>Dan is 5 minutes away from your location.</Text>
+        <Text style={{ color: 'white', fontSize: 24, fontWeight: 'bold' }}>Roy wants to link up with you.</Text>
+        <Text style={{ color: 'white', fontSize: 16 }}>Roy is 5 minutes away from your location.</Text>
       </View>
       <View style={styles.galleryContainer}>
         <Text style={{ fontSize: 24, color: "white", fontWeight: "bold" }}>
@@ -76,19 +76,23 @@ export default function Index2() {
           {/* Left: uploaded pictures grid */}
           <View style={styles.gallery}>
             <Image
-              source={require("../../assets/images/danImg/danUpload1.jpg")}
+              source={require("../../assets/images/royImg/royUpload1.jpg")}
               style={styles.uploadedPics}
             />
             <Image
-              source={require("../../assets/images/danImg/danUpload2.jpg")}
+              source={require("../../assets/images/royImg/royUpload2.jpg")}
               style={styles.uploadedPics}
             />
             <Image
-              source={require("../../assets/images/danImg/danUpload3.jpg")}
+              source={require("../../assets/images/royImg/royUpload3.jpg")}
               style={styles.uploadedPics}
             />
             <Image
-              source={require("../../assets/images/danImg/danUpload4.jpg")}
+              source={require("../../assets/images/royImg/royUpload4.jpg")}
+              style={styles.uploadedPics}
+            />
+            <Image
+              source={require("../../assets/images/royImg/royUpload5.jpg")}
               style={styles.uploadedPics}
             />
           </View>
