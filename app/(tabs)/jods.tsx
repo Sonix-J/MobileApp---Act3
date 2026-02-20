@@ -7,10 +7,7 @@ import {
   ScrollView,
   Linking,
 } from "react-native";
-import { LinearGradient } from "expo-linear-gradient";
 import { router } from "expo-router";
-import { SafeAreaView } from "react-native-safe-area-context";
-import { HeaderHeightContext } from "@react-navigation/elements";
 import { FontAwesome } from "@expo/vector-icons";
 
 export default function Index2() {
@@ -49,67 +46,54 @@ export default function Index2() {
         </View>
       </View>
 
-      <View style={styles.personInfo}>
-        <View>
-          <Text style={{ color: "white", fontSize: 16 }}>Birthday: July 25, 2004</Text>
-          <Text style={{ color: "white", fontSize: 16 }}>
-            Contact No#: 09273034964
-          </Text>
-          <Text style={{ color: "white", fontSize: 16 }}>Email: pacibejodeci@gmail.com</Text>
-        </View>
-        <View>
-          <View style={styles.socials}>
-            <TouchableOpacity
-              onPress={() =>
-                Linking.openURL("https://www.facebook.com/jodisi123")
-              }
-            >
-              <FontAwesome name="facebook" size={24} color="#ffa31a" />
-            </TouchableOpacity>
-            <TouchableOpacity
-              onPress={() =>
-                Linking.openURL("https://www.instagram.com/the.allseeing/")
-              }
-            >
-              <FontAwesome name="instagram" size={24} color="#ffa31a" />
-            </TouchableOpacity>
-          </View>
-        </View>
-      </View>
-      <View style={styles.adsContainer1}>
-        <View
-          style={{
-            flex: 1,
-            flexShrink: 1,
-            paddingRight: 10,
-            justifyContent: "space-between",
-          }}
-        >
-          <Text
-            style={{
-              color: "white",
-              fontSize: 24,
-              fontWeight: "bold",
-            }}
-          >
-            Jodeci wants to link up with you.
-          </Text>
-          <Text style={{ color: "white", fontSize: 16 }}>
-            Jodeci is 5 minutes away from your location.
+      <View style={styles.infoSection}>
+        <View style={styles.aboutBlock}>
+          <Text style={styles.aboutTitle}>About Jodeci</Text>
+          <Text style={styles.aboutText}>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia
+            fugiat obcaecati quas adipisci error at consectetur atque eum
+            possimus nulla voluptatibus facere dolorum quaerat, illum sit
+            ducimus hic dolorem libero!
           </Text>
         </View>
 
-        <View style={styles.adsContainer2}>
-          <Text style={{ color: "white" }}>Ads</Text>
-          <Image
-            source={require("../../assets/images/ads.jpg")}
-            style={styles.adsImg}
-          />
-          <Text style={{ color: "white", textAlign: "center" }}>
-            Gusto mo ba lumaki ang iyong
-          </Text>
+        <View style={styles.socialsBlock}>
+          <TouchableOpacity
+            style={styles.socialItem}
+            onPress={() =>
+              Linking.openURL("https://www.facebook.com/jodisi123")
+            }
+          >
+            <FontAwesome name="facebook" size={18} color="#ffa31a" />
+            <Text style={styles.socialText}>Facebook</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.socialItem}
+            onPress={() =>
+              Linking.openURL("https://www.instagram.com/the.allseeing/")
+            }
+          >
+            <FontAwesome name="instagram" size={18} color="#ffa31a" />
+            <Text style={styles.socialText}>Instagram</Text>
+          </TouchableOpacity>
+        </View>
+
+        <View style={styles.infoBlock}>
+          <View style={styles.infoContainer}>
+            <Text style={styles.infoLabel}>Birthday:</Text>
+            <Text style={styles.infoValue}>July 25, 2004</Text>
+          </View>
+          <View style={styles.infoContainer}>
+            <Text style={styles.infoLabel}>Contact No.:</Text>
+            <Text style={styles.infoValue}>09273034964</Text>
+          </View>
+          <View style={styles.infoContainer}>
+            <Text style={styles.infoLabel}>Email:</Text>
+            <Text style={styles.infoValue}>pacibejodeci@gmail.com</Text>
+          </View>
         </View>
       </View>
+
       <View style={styles.galleryContainer}>
         <Text style={{ fontSize: 24, color: "white", fontWeight: "bold" }}>
           Uploaded Pictures
@@ -129,11 +113,42 @@ export default function Index2() {
               source={require("../../assets/images/jodsImg/jodsUpload3.jpg")}
               style={styles.uploadedPics}
             />
-            {/* <Image
-              source={require("../../assets/images/jodsImg/danUpload4.jpg")}
-              style={styles.uploadedPics}
-            /> */}
           </View>
+        </View>
+      </View>
+
+      <View style={styles.adsContainer1}>
+        <View
+          style={{
+            flex: 1,
+            flexShrink: 1,
+            paddingRight: 10,
+            justifyContent: "space-between",
+          }}
+        >
+          <Text
+            style={{
+              color: "black",
+              fontSize: 24,
+              fontWeight: "bold",
+            }}
+          >
+            Jodeci wants to link up with you.
+          </Text>
+          <Text style={{ color: "black", fontSize: 16 }}>
+            Jodeci is 5 minutes away from your location.
+          </Text>
+        </View>
+
+        <View style={styles.adsContainer2}>
+          <Text style={{ color: "black" }}>Ads</Text>
+          <Image
+            source={require("../../assets/images/ads.jpg")}
+            style={styles.adsImg}
+          />
+          <Text style={{ color: "black", textAlign: "center" }}>
+            Gusto mo ba lumaki ang iyong
+          </Text>
         </View>
       </View>
     </ScrollView>
@@ -143,18 +158,16 @@ export default function Index2() {
 const styles = StyleSheet.create({
   screenLayout: {
     flex: 1,
-    backgroundColor: "#1b1b1b",
+    backgroundColor: "black",
   },
   scrollContent: {
     flexDirection: "column",
-    gap: 20,
     paddingBottom: 40,
   },
   headerContainer: {
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    marginBottom: 20,
     paddingTop: 50,
     backgroundColor: "#292929",
     padding: 20,
@@ -172,7 +185,7 @@ const styles = StyleSheet.create({
   profileContainer: {
     gap: 20,
     flexDirection: "row",
-    padding: 10,
+    padding: 30,
   },
   profileInfoContainer: {
     gap: 10,
@@ -191,20 +204,89 @@ const styles = StyleSheet.create({
     height: 150,
     resizeMode: "cover",
     borderColor: "black",
-    borderWidth: 1,
-    borderRadius: 15,
   },
-  personInfo: {
-    padding: 20,
-    gap: 20,
+  infoSection: {
+    flexDirection: "row",
+    paddingVertical: 20,
+    paddingHorizontal: 16,
+    gap: 12,
     borderTopWidth: 1,
-    borderTopColor: "#ffa31a",
-    justifyContent: "space-between",
-    flexDirection: "row",
+    borderTopColor: "#2a2a2a",
+    borderBottomWidth: 1,
+    borderBottomColor: "#2a2a2a",
+    backgroundColor: "#292929",
   },
-  socials: {
+  aboutBlock: {
+    flex: 1.2,
+    flexShrink: 1,
+    gap: 8,
+    paddingRight: 12,
+  },
+  aboutTitle: {
+    color: "white",
+    fontSize: 15,
+    fontWeight: "bold",
+    marginBottom: 4,
+  },
+  aboutText: {
+    color: "#aaa",
+    fontSize: 12,
+    lineHeight: 18,
+  },
+  socialsBlock: {
+    justifyContent: "center",
+    gap: 18,
+    paddingHorizontal: 12,
+    borderRightWidth: 1,
+    borderRightColor: "#2a2a2a",
+  },
+  socialItem: {
     flexDirection: "row",
-    gap: 15,
+    alignItems: "center",
+    gap: 8,
+  },
+  socialText: {
+    color: "white",
+    fontSize: 13,
+  },
+  infoBlock: {
+    flex: 1,
+    flexShrink: 1,
+    justifyContent: "center",
+    paddingLeft: 12,
+  },
+  infoContainer: {
+    flexDirection: "column",
+    gap: 2,
+    paddingVertical: 7,
+    borderBottomWidth: 1,
+    borderBottomColor: "#2a2a2a",
+  },
+  infoLabel: {
+    color: "#aaa",
+    fontSize: 12,
+    fontWeight: "bold",
+  },
+  infoValue: {
+    color: "white",
+    fontSize: 12,
+    flexWrap: "wrap",
+  },
+  adsContainer1: {
+    backgroundColor: "#ffa31a",
+    padding: 10,
+    gap: 20,
+    flexDirection: "row",
+    justifyContent: "space-between",
+  },
+  adsContainer2: {
+    gap: 5,
+    width: 150,
+  },
+  adsImg: {
+    width: 150,
+    height: 200,
+    borderWidth: 1,
   },
   galleryContainer: {
     padding: 20,
@@ -222,22 +304,6 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignContent: "flex-start",
     flex: 1,
-    marginRight: 10,
-  },
-  adsContainer1: {
-    backgroundColor: "black",
-    padding: 10,
-    gap: 20,
-    flexDirection: "row",
-    justifyContent: "space-between",
-  },
-  adsContainer2: {
-    gap: 5,
-    width: 150,
-  },
-  adsImg: {
-    width: 150,
-    height: 200
   },
   uploadedPics: {
     width: 350,
