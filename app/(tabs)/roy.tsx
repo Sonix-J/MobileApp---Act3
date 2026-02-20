@@ -50,12 +50,12 @@ export default function Index2() {
       </View>
 
       <View style={styles.personInfo}>
-        <View>
-          <Text style={{ color: "white", fontSize: 16 }}>Age: 87</Text>
+        <View style={styles.info}>
+          <Text style={{ color: "white", fontSize: 16 }}>Birthday: June 18, 2004</Text>
           <Text style={{ color: "white", fontSize: 16 }}>
-            Address: Canada, Chicago, France
+            Contact No#: 0945322297
           </Text>
-          <Text style={{ color: "white", fontSize: 16 }}>Height: 9'0</Text>
+          <Text style={{ color: "white", fontSize: 16 }}>Email: rondina894@gmail.com</Text>
         </View>
         <View>
           <View style={styles.socials}>
@@ -96,7 +96,7 @@ export default function Index2() {
           <Text style={{ color: "white" }}>Ads</Text>
           <Image
             source={require("../../assets/images/ads.jpg")}
-            style={styles.uploadedPics}
+            style={styles.adsImg}
           />
           <Text style={{ color: "white", textAlign: "center" }}>
             Gusto mo ba lumaki ang iyong
@@ -199,6 +199,9 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     flexDirection: "row",
   },
+  info: {
+    gap: 10
+  },
   socials: {
     flexDirection: "row",
     gap: 15,
@@ -214,7 +217,7 @@ const styles = StyleSheet.create({
   },
   gallery: {
     flexDirection: "row",
-    gap: 10,
+    gap: 20,
     flexWrap: "wrap",
     justifyContent: "center",
     alignContent: "flex-start",
@@ -232,9 +235,13 @@ const styles = StyleSheet.create({
     gap: 5,
     width: 150,
   },
-  uploadedPics: {
+  adsImg: {
     width: 150,
-    height: 200,
+    height: 200
+  },
+  uploadedPics: {
+    width: 350,
+    height: 300,
     resizeMode: "cover",
     borderColor: "black",
   },

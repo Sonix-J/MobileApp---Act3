@@ -18,11 +18,13 @@ export default function HomeScreen() {
       <View style={styles.headerContainer}>
         <Text style={styles.headerText}>Pinoy</Text>
         <View style={styles.textContainer}>
-          <Text style={{ color: "black", fontSize: 32, fontWeight: "bold" }}>
+          <Text style={{ color: "black", fontSize: 42, fontWeight: "bold" }}>
             hub
           </Text>
         </View>
       </View>
+      <View style={{ paddingRight: 20, paddingLeft: 20 }}>
+        <Text style={{ fontSize: 24, color: 'white', fontWeight: 'bold' }}>Top Pinoy in the Philippines</Text></View>
       <View style={styles.cardContainer}>
         <TouchableOpacity
           style={styles.cardWrapper}
@@ -125,7 +127,7 @@ const styles = StyleSheet.create({
   },
   headerText: {
     color: "white",
-    fontSize: 32,
+    fontSize: 42,
     fontWeight: "bold",
   },
   textContainer: {
@@ -149,7 +151,6 @@ const styles = StyleSheet.create({
   profileImage: {
     width: "100%",
     height: 200,
-    borderRadius: 5,
   },
   nameContainer: {
     flexDirection: "row",
