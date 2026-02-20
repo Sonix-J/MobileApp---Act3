@@ -229,8 +229,6 @@ const styles = StyleSheet.create({
     flexShrink: 1,
     gap: 8,
     paddingRight: 12,
-    borderRightWidth: 1,
-    borderRightColor: "#2a2a2a",
   },
   aboutTitle: {
     color: "white",
@@ -266,12 +264,11 @@ const styles = StyleSheet.create({
     paddingLeft: 12,
   },
   infoContainer: {
-    flexDirection: "row",
-    gap: 4,
+    flexDirection: "column",
+    gap: 2,
     paddingVertical: 7,
     borderBottomWidth: 1,
     borderBottomColor: "#2a2a2a",
-    flexWrap: "wrap",
   },
   infoLabel: {
     color: "#aaa",
@@ -281,10 +278,8 @@ const styles = StyleSheet.create({
   infoValue: {
     color: "white",
     fontSize: 12,
-    flexShrink: 1,
     flexWrap: "wrap",
   },
-
   adsContainer1: {
     backgroundColor: "#ffa31a",
     padding: 10,
