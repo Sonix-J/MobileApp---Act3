@@ -17,7 +17,6 @@ export default function Index2() {
       style={styles.screenLayout}
       contentContainerStyle={styles.scrollContent}
     >
-      {/* Header */}
       <View style={styles.headerContainer}>
         <TouchableOpacity onPress={() => router.push("/")}>
           <FontAwesome name="arrow-left" size={24} color="white" />
@@ -31,8 +30,6 @@ export default function Index2() {
           </View>
         </View>
       </View>
-
-      {/* Profile */}
       <View style={styles.profileContainer}>
         <Image
           source={require("../../assets/images/danImg/dan.jpg")}
@@ -78,8 +75,6 @@ export default function Index2() {
             <Text style={styles.socialText}>Instagram</Text>
           </TouchableOpacity>
         </View>
-
-        {/* Column 3: Info fields */}
         <View style={styles.infoBlock}>
           <View style={styles.infoContainer}>
             <Text style={styles.infoLabel}>Birthday:</Text>
@@ -296,8 +291,6 @@ const styles = StyleSheet.create({
     height: 200,
     borderWidth: 1,
   },
-
-  /* Gallery */
   galleryContainer: {
     padding: 20,
     gap: 20,
