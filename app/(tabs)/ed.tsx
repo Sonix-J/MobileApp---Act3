@@ -5,6 +5,7 @@ import {
   Image,
   TouchableOpacity,
   ScrollView,
+  Linking
 } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import { router } from "expo-router";
@@ -58,14 +59,56 @@ export default function Index2() {
         </View>
         <View>
           <View style={styles.socials}>
-            <FontAwesome name="facebook" size={24} color="#ffa31a" />
-            <FontAwesome name="instagram" size={24} color="#ffa31a" />
+            <TouchableOpacity
+              onPress={() =>
+                Linking.openURL("https://www.facebook.com/wcz.realtrader")
+              }
+            >
+              <FontAwesome name="facebook" size={24} color="#ffa31a" />
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() =>
+                Linking.openURL("https://www.instagram.com/edmark.talingting/")
+              }
+            >
+              <FontAwesome name="instagram" size={24} color="#ffa31a" />
+            </TouchableOpacity>
           </View>
         </View>
       </View>
       <View style={styles.adsContainer1}>
-        <Text style={{ color: 'white', fontSize: 24, fontWeight: 'bold' }}>Edmark wants to link up with you.</Text>
-        <Text style={{ color: 'white', fontSize: 16 }}>Edmark is 5 minutes away from your location.</Text>
+        <View
+          style={{
+            flex: 1,
+            flexShrink: 1,
+            paddingRight: 10,
+            justifyContent: "space-between",
+          }}
+        >
+          <Text
+            style={{
+              color: "white",
+              fontSize: 24,
+              fontWeight: "bold",
+            }}
+          >
+            Edmark wants to link up with you.
+          </Text>
+          <Text style={{ color: "white", fontSize: 16 }}>
+            Edmark is 5 minutes away from your location.
+          </Text>
+        </View>
+
+        <View style={styles.adsContainer2}>
+          <Text style={{ color: "white" }}>Ads</Text>
+          <Image
+            source={require("../../assets/images/ads.jpg")}
+            style={styles.uploadedPics}
+          />
+          <Text style={{ color: "white", textAlign: "center" }}>
+            Gusto mo ba lumaki ang iyong
+          </Text>
+        </View>
       </View>
       <View style={styles.galleryContainer}>
         <Text style={{ fontSize: 24, color: "white", fontWeight: "bold" }}>
@@ -73,7 +116,6 @@ export default function Index2() {
         </Text>
 
         <View style={styles.galleryRow}>
-          {/* Left: uploaded pictures grid */}
           <View style={styles.gallery}>
             <Image
               source={require("../../assets/images/edImg/edUpload1.jpg")}
@@ -91,16 +133,6 @@ export default function Index2() {
               source={require("../../assets/images/edImg/danUpload4.jpg")}
               style={styles.uploadedPics}
             /> */}
-          </View>
-
-          {/* Right: ads */}
-          <View style={styles.adsContainer2}>
-            <Text style={{ color: "white" }}>Ads</Text>
-            <Image
-              source={require("../../assets/images/ads.jpg")}
-              style={styles.uploadedPics}
-            />
-            <Text style={{ color: "white", textAlign: 'center' }}>Gusto mo ba lumaki ang iyong</Text>
           </View>
         </View>
       </View>
@@ -123,6 +155,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
     marginBottom: 20,
+    paddingTop: 50,
     backgroundColor: "#292929",
     padding: 20,
   },
@@ -180,25 +213,27 @@ const styles = StyleSheet.create({
   galleryRow: {
     flexDirection: "row",
     justifyContent: "space-between",
-    alignItems: "flex-start",
+    alignItems: "center",
   },
   gallery: {
     flexDirection: "row",
     gap: 10,
     flexWrap: "wrap",
-    justifyContent: "flex-start",
+    justifyContent: "center",
     alignContent: "flex-start",
     flex: 1,
     marginRight: 10,
   },
   adsContainer1: {
-    backgroundColor: 'black',
+    backgroundColor: "black",
     padding: 10,
-    gap: 20
+    gap: 20,
+    flexDirection: "row",
+    justifyContent: "space-between",
   },
   adsContainer2: {
     gap: 5,
-    width: 150
+    width: 150,
   },
   uploadedPics: {
     width: 150,
