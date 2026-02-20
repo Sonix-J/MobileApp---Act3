@@ -83,15 +83,15 @@ export default function Index2() {
         <View style={styles.infoBlock}>
           <View style={styles.infoContainer}>
             <Text style={styles.infoLabel}>Birthday:</Text>
-            <Text style={styles.infoValue}>87</Text>
+            <Text style={styles.infoValue}>December 13, 2003</Text>
           </View>
           <View style={styles.infoContainer}>
             <Text style={styles.infoLabel}>Contact No.:</Text>
-            <Text style={styles.infoValue}>0912515512</Text>
+            <Text style={styles.infoValue}>09612444703</Text>
           </View>
           <View style={styles.infoContainer}>
             <Text style={styles.infoLabel}>Email:</Text>
-            <Text style={styles.infoValue}>dananton@gmail.com</Text>
+            <Text style={styles.infoValue}>danbejec4@gmail.com</Text>
           </View>
         </View>
       </View>
