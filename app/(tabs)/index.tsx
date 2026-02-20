@@ -16,7 +16,7 @@ export default function HomeScreen() {
   return (
     <ScrollView style={styles.screenLayout}>
       <View style={styles.headerContainer}>
-        <Text style={styles.headerText}>Study</Text>
+        <Text style={styles.headerText}>Pinoy</Text>
         <View style={styles.textContainer}>
           <Text style={{ color: "black", fontSize: 32, fontWeight: "bold" }}>
             hub

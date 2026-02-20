@@ -23,7 +23,7 @@ export default function Index2() {
           <FontAwesome name="arrow-left" size={24} color="white" />
         </TouchableOpacity>
         <View style={{ flexDirection: "row", gap: 5 }}>
-          <Text style={styles.headerText}>Study</Text>
+          <Text style={styles.headerText}>Pinoy</Text>
           <View style={styles.textContainer}>
             <Text style={{ color: "black", fontSize: 32, fontWeight: "bold" }}>
               hub
