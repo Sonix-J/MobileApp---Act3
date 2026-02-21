@@ -44,25 +44,31 @@ export default function Index2() {
             Cebu Technological Campus - Main Campus
           </Text>
         </View>
+        <View style={styles.statsContainer}>
+          <View style={{ alignItems: "center" }}>
+            <Text style={{ color: "white", fontSize: 18, fontWeight: "bold" }}>
+              123
+            </Text>
+            <Text style={{ color: "#d6d3d3", fontSize: 12 }}>Model Rank</Text>
+          </View>
+          <View style={{ alignItems: "center" }}>
+            <Text style={{ color: "white", fontSize: 18, fontWeight: "bold" }}>
+              1M
+            </Text>
+            <Text style={{ color: "#d6d3d3", fontSize: 12 }}>Subscribers</Text>
+          </View>
+        </View>
       </View>
 
       <View style={styles.infoSection}>
         <View style={styles.aboutBlock}>
           <Text style={styles.aboutTitle}>About Roy</Text>
           <Text style={styles.aboutText}>
-            Roy Adrian Rondina is someone who enjoys both creativity and comfort
-            in his everyday life. He loves playing mobile video games, where he
-            can challenge himself, explore different worlds, and have fun
-            anytime, anywhere. He’s also a fan of reading manga and manhwa,
-            diving into exciting storylines and unique art styles that keep him
-            hooked chapter after chapter. His love for storytelling continues
-            through watching anime, where action, emotion, and imagination come
-            together. Beyond entertainment, Roy has a passion for cooking,
-            finding joy in preparing meals and trying out different dishes. Most
-            importantly, he deeply values his family and takes pride in caring
-            for them and spending quality time together. A blend of gamer,
-            reader, anime lover, and family-oriented individual, Roy balances
-            his hobbies with heart.
+            Roy Adrian Rondina enjoys creativity and comfort in his daily life.
+            He loves playing mobile games, reading manga and manhwa, and
+            watching anime. Passionate about cooking and caring for his family,
+            Roy balances his hobbies with heart and quality time with loved
+            ones.
           </Text>
         </View>
 
@@ -107,7 +113,6 @@ export default function Index2() {
         <Text style={{ fontSize: 24, color: "white", fontWeight: "bold" }}>
           Uploaded Pictures
         </Text>
-
         <View style={styles.galleryRow}>
           <View style={styles.gallery}>
             <Image
@@ -156,7 +161,6 @@ export default function Index2() {
             Roy is 5 minutes away from your location.
           </Text>
         </View>
-
         <View style={styles.adsContainer2}>
           <Text style={{ color: "black" }}>Ads</Text>
           <Image
@@ -200,14 +204,22 @@ const styles = StyleSheet.create({
     paddingHorizontal: 5,
   },
   profileContainer: {
-    gap: 20,
     flexDirection: "row",
+    flexWrap: "wrap",
     padding: 30,
+    gap: 20,
+    alignItems: "center",
   },
   profileInfoContainer: {
-    gap: 10,
     flex: 1,
+    minWidth: 150,
     flexShrink: 1,
+    gap: 10,
+  },
+  statsContainer: {
+    flexDirection: "row",
+    gap: 24,
+    justifyContent: "center",
   },
   profileText: {
     color: "white",
@@ -224,6 +236,7 @@ const styles = StyleSheet.create({
   },
   infoSection: {
     flexDirection: "row",
+    flexWrap: "wrap",
     paddingVertical: 20,
     paddingHorizontal: 16,
     gap: 12,
@@ -234,7 +247,8 @@ const styles = StyleSheet.create({
     backgroundColor: "#292929",
   },
   aboutBlock: {
-    flex: 1.2,
+    flex: 1,
+    minWidth: 200,
     flexShrink: 1,
     gap: 8,
     paddingRight: 12,
@@ -251,6 +265,7 @@ const styles = StyleSheet.create({
     lineHeight: 18,
   },
   socialsBlock: {
+    minWidth: 120,
     justifyContent: "center",
     gap: 18,
     paddingHorizontal: 12,
@@ -268,9 +283,9 @@ const styles = StyleSheet.create({
   },
   infoBlock: {
     flex: 1,
+    minWidth: 150,
     flexShrink: 1,
     justifyContent: "center",
-    paddingLeft: 12,
   },
   infoContainer: {
     flexDirection: "column",
