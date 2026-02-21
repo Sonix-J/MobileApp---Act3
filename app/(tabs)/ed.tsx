@@ -43,23 +43,30 @@ export default function Index2() {
             Cebu Technological Campus - Main Campus
           </Text>
         </View>
+        <View style={styles.statsContainer}>
+          <View style={{ alignItems: "center" }}>
+            <Text style={{ color: "white", fontSize: 18, fontWeight: "bold" }}>
+              123
+            </Text>
+            <Text style={{ color: "#d6d3d3", fontSize: 12 }}>Model Rank</Text>
+          </View>
+          <View style={{ alignItems: "center" }}>
+            <Text style={{ color: "white", fontSize: 18, fontWeight: "bold" }}>
+              1M
+            </Text>
+            <Text style={{ color: "#d6d3d3", fontSize: 12 }}>Subscribers</Text>
+          </View>
+        </View>
       </View>
       <View style={styles.infoSection}>
         <View style={styles.aboutBlock}>
           <Text style={styles.aboutTitle}>About Edmark</Text>
           <Text style={styles.aboutText}>
-            Edmark Talingting is a tech enthusiast with a passion for
-            programming and exploring the ever-evolving world of technology. He
-            enjoys learning how things work behind the scenes, building ideas
-            through code, and staying updated with the latest digital trends.
-            When he’s not diving into tech, Edmark loves playing games, where he
-            can challenge himself and unwind at the same time. He’s also a big
-            fan of watching K-dramas, getting hooked on emotional storylines and
-            unforgettable characters. In his free time, you’ll often find him
-            watching live videos on Facebook and TikTok, keeping up with
-            streamers, trending content, and real-time entertainment. A mix of
-            tech-savvy curiosity and entertainment lover, Edmark balances
-            innovation with fun.
+            Edmark Talingting is a tech enthusiast passionate about programming
+            and exploring new digital trends. He enjoys gaming, watching
+            K-dramas, and staying entertained with live videos on Facebook and
+            TikTok. Combining tech curiosity with a love for fun, Edmark
+            balances innovation and relaxation.
           </Text>
         </View>
         <View style={styles.socialsBlock}>
@@ -101,7 +108,6 @@ export default function Index2() {
         <Text style={{ fontSize: 24, color: "white", fontWeight: "bold" }}>
           Uploaded Pictures
         </Text>
-
         <View style={styles.galleryRow}>
           <View style={styles.gallery}>
             <Image
@@ -141,7 +147,6 @@ export default function Index2() {
             Edmark is 5 minutes away from your location.
           </Text>
         </View>
-
         <View style={styles.adsContainer2}>
           <Text style={{ color: "black" }}>Ads</Text>
           <Image
@@ -185,14 +190,22 @@ const styles = StyleSheet.create({
     paddingHorizontal: 5,
   },
   profileContainer: {
-    gap: 20,
     flexDirection: "row",
+    flexWrap: "wrap",
     padding: 30,
+    gap: 20,
+    alignItems: "center",
   },
   profileInfoContainer: {
-    gap: 10,
     flex: 1,
+    minWidth: 150,
     flexShrink: 1,
+    gap: 10,
+  },
+  statsContainer: {
+    flexDirection: "row",
+    gap: 24,
+    justifyContent: "center",
   },
   profileText: {
     color: "white",
@@ -209,6 +222,7 @@ const styles = StyleSheet.create({
   },
   infoSection: {
     flexDirection: "row",
+    flexWrap: "wrap",
     paddingVertical: 20,
     paddingHorizontal: 16,
     gap: 12,
@@ -219,7 +233,8 @@ const styles = StyleSheet.create({
     backgroundColor: "#292929",
   },
   aboutBlock: {
-    flex: 1.2,
+    flex: 1,
+    minWidth: 200,
     flexShrink: 1,
     gap: 8,
     paddingRight: 12,
@@ -236,6 +251,7 @@ const styles = StyleSheet.create({
     lineHeight: 18,
   },
   socialsBlock: {
+    minWidth: 120,
     justifyContent: "center",
     gap: 18,
     paddingHorizontal: 12,
@@ -253,9 +269,9 @@ const styles = StyleSheet.create({
   },
   infoBlock: {
     flex: 1,
+    minWidth: 150,
     flexShrink: 1,
     justifyContent: "center",
-    paddingLeft: 12,
   },
   infoContainer: {
     flexDirection: "column",
