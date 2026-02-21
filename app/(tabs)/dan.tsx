@@ -44,15 +44,32 @@ export default function Index2() {
             Cebu Technological Campus - Main Campus
           </Text>
         </View>
+        <View style={styles.statsContainer}>
+          <View style={{ alignItems: "center" }}>
+            <Text style={{ color: "white", fontSize: 18, fontWeight: "bold" }}>
+              123
+            </Text>
+            <Text style={{ color: "#d6d3d3", fontSize: 12 }}>Model Rank</Text>
+          </View>
+          <View style={{ alignItems: "center" }}>
+            <Text style={{ color: "white", fontSize: 18, fontWeight: "bold" }}>
+              1M
+            </Text>
+            <Text style={{ color: "#d6d3d3", fontSize: 12 }}>Subscribers</Text>
+          </View>
+        </View>
       </View>
       <View style={styles.infoSection}>
         <View style={styles.aboutBlock}>
           <Text style={styles.aboutTitle}>About Dan</Text>
           <Text style={styles.aboutText}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia
-            fugiat obcaecati quas adipisci error at consectetur atque eum
-            possimus nulla voluptatibus facere dolorum quaerat, illum sit
-            ducimus hic dolorem libero!
+            Dan Anton Bejec thrives on both action and balance. He enjoys
+            playing games that challenge his skills and strategy, while staying
+            active through working out and jogging to keep himself strong and
+            disciplined. In his free time, he loves watching podcasts, anime,
+            and K-dramas, and scrolling through TikTok for entertainment. A mix
+            of gamer focus and fitness drive, Dan knows how to stay productive
+            while still enjoying his downtime.
           </Text>
         </View>
         <View style={styles.socialsBlock}>
@@ -142,7 +159,7 @@ export default function Index2() {
         <View style={styles.adsContainer2}>
           <Text style={{ color: "black" }}>Ads</Text>
           <Image
-            source={require("../../assets/images/ads.jpg")}
+            source={require("../../assets/images/ads3.jpg")}
             style={styles.adsImg}
           />
           <Text style={{ color: "black", textAlign: "center" }}>
@@ -186,14 +203,22 @@ const styles = StyleSheet.create({
   },
 
   profileContainer: {
-    gap: 20,
     flexDirection: "row",
+    flexWrap: "wrap",
     padding: 30,
+    gap: 20,
+    alignItems: "center",
   },
   profileInfoContainer: {
-    gap: 10,
     flex: 1,
+    minWidth: 150,
     flexShrink: 1,
+    gap: 10,
+  },
+  statsContainer: {
+    flexDirection: "row",
+    gap: 24,
+    justifyContent: "center",
   },
   profileText: {
     color: "white",
@@ -210,6 +235,7 @@ const styles = StyleSheet.create({
   },
   infoSection: {
     flexDirection: "row",
+    flexWrap: "wrap", 
     paddingVertical: 20,
     paddingHorizontal: 16,
     gap: 12,
@@ -220,7 +246,8 @@ const styles = StyleSheet.create({
     backgroundColor: "#292929",
   },
   aboutBlock: {
-    flex: 1.2,
+    flex: 1,
+    minWidth: 200,
     flexShrink: 1,
     gap: 8,
     paddingRight: 12,
@@ -237,6 +264,7 @@ const styles = StyleSheet.create({
     lineHeight: 18,
   },
   socialsBlock: {
+    minWidth: 120, 
     justifyContent: "center",
     gap: 18,
     paddingHorizontal: 12,
@@ -254,9 +282,9 @@ const styles = StyleSheet.create({
   },
   infoBlock: {
     flex: 1,
+    minWidth: 150,
     flexShrink: 1,
     justifyContent: "center",
-    paddingLeft: 12,
   },
   infoContainer: {
     flexDirection: "column",

@@ -50,10 +50,16 @@ export default function Index2() {
         <View style={styles.aboutBlock}>
           <Text style={styles.aboutTitle}>About Jodeci</Text>
           <Text style={styles.aboutText}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia
-            fugiat obcaecati quas adipisci error at consectetur atque eum
-            possimus nulla voluptatibus facere dolorum quaerat, illum sit
-            ducimus hic dolorem libero!
+            Jodeci Pacibe is a creative soul with a deep love for pixel art,
+            where tiny squares turn into big ideas. Whether it’s designing
+            retro-style characters or experimenting with colorful digital
+            worlds, he enjoys expressing himself one pixel at a time. When he’s
+            not creating, you’ll probably find him embracing the art of “bed
+            rot” — recharging in comfort while scrolling endlessly through
+            TikTok. From funny clips to random late-night discoveries, he’s
+            always up to date with the latest trends. A mix of creativity and
+            chill vibes, Jodeci keeps life balanced between imagination and
+            relaxation.
           </Text>
         </View>
 
@@ -143,7 +149,7 @@ export default function Index2() {
         <View style={styles.adsContainer2}>
           <Text style={{ color: "black" }}>Ads</Text>
           <Image
-            source={require("../../assets/images/ads.jpg")}
+            source={require("../../assets/images/ads4.jpg")}
             style={styles.adsImg}
           />
           <Text style={{ color: "black", textAlign: "center" }}>

@@ -50,10 +50,19 @@ export default function Index2() {
         <View style={styles.aboutBlock}>
           <Text style={styles.aboutTitle}>About Roy</Text>
           <Text style={styles.aboutText}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia
-            fugiat obcaecati quas adipisci error at consectetur atque eum
-            possimus nulla voluptatibus facere dolorum quaerat, illum sit
-            ducimus hic dolorem libero!
+            Roy Adrian Rondina is someone who enjoys both creativity and comfort
+            in his everyday life. He loves playing mobile video games, where he
+            can challenge himself, explore different worlds, and have fun
+            anytime, anywhere. He’s also a fan of reading manga and manhwa,
+            diving into exciting storylines and unique art styles that keep him
+            hooked chapter after chapter. His love for storytelling continues
+            through watching anime, where action, emotion, and imagination come
+            together. Beyond entertainment, Roy has a passion for cooking,
+            finding joy in preparing meals and trying out different dishes. Most
+            importantly, he deeply values his family and takes pride in caring
+            for them and spending quality time together. A blend of gamer,
+            reader, anime lover, and family-oriented individual, Roy balances
+            his hobbies with heart.
           </Text>
         </View>
 

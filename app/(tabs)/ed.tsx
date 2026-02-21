@@ -48,10 +48,18 @@ export default function Index2() {
         <View style={styles.aboutBlock}>
           <Text style={styles.aboutTitle}>About Edmark</Text>
           <Text style={styles.aboutText}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia
-            fugiat obcaecati quas adipisci error at consectetur atque eum
-            possimus nulla voluptatibus facere dolorum quaerat, illum sit
-            ducimus hic dolorem libero!
+            Edmark Talingting is a tech enthusiast with a passion for
+            programming and exploring the ever-evolving world of technology. He
+            enjoys learning how things work behind the scenes, building ideas
+            through code, and staying updated with the latest digital trends.
+            When he’s not diving into tech, Edmark loves playing games, where he
+            can challenge himself and unwind at the same time. He’s also a big
+            fan of watching K-dramas, getting hooked on emotional storylines and
+            unforgettable characters. In his free time, you’ll often find him
+            watching live videos on Facebook and TikTok, keeping up with
+            streamers, trending content, and real-time entertainment. A mix of
+            tech-savvy curiosity and entertainment lover, Edmark balances
+            innovation with fun.
           </Text>
         </View>
         <View style={styles.socialsBlock}>
@@ -137,7 +145,7 @@ export default function Index2() {
         <View style={styles.adsContainer2}>
           <Text style={{ color: "black" }}>Ads</Text>
           <Image
-            source={require("../../assets/images/ads.jpg")}
+            source={require("../../assets/images/ads2.jpg")}
             style={styles.adsImg}
           />
           <Text style={{ color: "black", textAlign: "center" }}>

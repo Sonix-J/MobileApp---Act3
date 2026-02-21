@@ -50,10 +50,18 @@ export default function Index2() {
         <View style={styles.aboutBlock}>
           <Text style={styles.aboutTitle}>About Lorenzo</Text>
           <Text style={styles.aboutText}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia
-            fugiat obcaecati quas adipisci error at consectetur atque eum
-            possimus nulla voluptatibus facere dolorum quaerat, illum sit
-            ducimus hic dolorem libero!
+            John Lorenzo Flores is someone who values both family and personal
+            growth. He loves going back to his home province, where he can
+            relax, reconnect with his roots, and enjoy the simple moments that
+            mean the most. In his daily life, John enjoys working out at home,
+            staying active and committed to maintaining his health. He believes
+            that discipline and consistency are key to becoming better every
+            day. During his free time, he likes scrolling through social media
+            to stay updated and entertained. Most importantly, he treasures
+            spending quality time with his family, creating memories and
+            strengthening the bonds that matter most. Grounded, active, and
+            family-oriented, John finds happiness in both progress and
+            togetherness.
           </Text>
         </View>
 
