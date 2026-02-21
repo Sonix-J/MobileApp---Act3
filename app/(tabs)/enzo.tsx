@@ -44,24 +44,32 @@ export default function Index2() {
             Cebu Technological Campus - Main Campus
           </Text>
         </View>
+        <View style={styles.statsContainer}>
+          <View style={{ alignItems: "center" }}>
+            <Text style={{ color: "white", fontSize: 18, fontWeight: "bold" }}>
+              123
+            </Text>
+            <Text style={{ color: "#d6d3d3", fontSize: 12 }}>Model Rank</Text>
+          </View>
+          <View style={{ alignItems: "center" }}>
+            <Text style={{ color: "white", fontSize: 18, fontWeight: "bold" }}>
+              1M
+            </Text>
+            <Text style={{ color: "#d6d3d3", fontSize: 12 }}>Subscribers</Text>
+          </View>
+        </View>
       </View>
 
       <View style={styles.infoSection}>
         <View style={styles.aboutBlock}>
           <Text style={styles.aboutTitle}>About Lorenzo</Text>
           <Text style={styles.aboutText}>
-            John Lorenzo Flores is someone who values both family and personal
-            growth. He loves going back to his home province, where he can
-            relax, reconnect with his roots, and enjoy the simple moments that
-            mean the most. In his daily life, John enjoys working out at home,
-            staying active and committed to maintaining his health. He believes
-            that discipline and consistency are key to becoming better every
-            day. During his free time, he likes scrolling through social media
-            to stay updated and entertained. Most importantly, he treasures
-            spending quality time with his family, creating memories and
-            strengthening the bonds that matter most. Grounded, active, and
-            family-oriented, John finds happiness in both progress and
-            togetherness.
+            John Lorenzo Flores values family and personal growth. He loves
+            returning to his home province to relax and reconnect with his
+            roots. He stays active by working out at home, enjoys scrolling
+            through social media, and treasures spending quality time with his
+            family. Grounded and family-oriented, John finds happiness in both
+            progress and togetherness.
           </Text>
         </View>
 
@@ -106,7 +114,6 @@ export default function Index2() {
         <Text style={{ fontSize: 24, color: "white", fontWeight: "bold" }}>
           Uploaded Pictures
         </Text>
-
         <View style={styles.galleryRow}>
           <View style={styles.gallery}>
             <Image
@@ -147,7 +154,6 @@ export default function Index2() {
             Lorenzo is 5 minutes away from your location.
           </Text>
         </View>
-
         <View style={styles.adsContainer2}>
           <Text style={{ color: "black" }}>Ads</Text>
           <Image
@@ -191,14 +197,22 @@ const styles = StyleSheet.create({
     paddingHorizontal: 5,
   },
   profileContainer: {
-    gap: 20,
     flexDirection: "row",
+    flexWrap: "wrap",
     padding: 30,
+    gap: 20,
+    alignItems: "center",
   },
   profileInfoContainer: {
-    gap: 10,
     flex: 1,
+    minWidth: 150,
     flexShrink: 1,
+    gap: 10,
+  },
+  statsContainer: {
+    flexDirection: "row",
+    gap: 24,
+    justifyContent: "center",
   },
   profileText: {
     color: "white",
@@ -215,6 +229,7 @@ const styles = StyleSheet.create({
   },
   infoSection: {
     flexDirection: "row",
+    flexWrap: "wrap",
     paddingVertical: 20,
     paddingHorizontal: 16,
     gap: 12,
@@ -225,7 +240,8 @@ const styles = StyleSheet.create({
     backgroundColor: "#292929",
   },
   aboutBlock: {
-    flex: 1.2,
+    flex: 1,
+    minWidth: 200,
     flexShrink: 1,
     gap: 8,
     paddingRight: 12,
@@ -242,6 +258,7 @@ const styles = StyleSheet.create({
     lineHeight: 18,
   },
   socialsBlock: {
+    minWidth: 120,
     justifyContent: "center",
     gap: 18,
     paddingHorizontal: 12,
@@ -259,9 +276,9 @@ const styles = StyleSheet.create({
   },
   infoBlock: {
     flex: 1,
+    minWidth: 150,
     flexShrink: 1,
     justifyContent: "center",
-    paddingLeft: 12,
   },
   infoContainer: {
     flexDirection: "column",
