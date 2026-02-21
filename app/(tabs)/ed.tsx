@@ -46,13 +46,13 @@ export default function Index2() {
         <View style={styles.statsContainer}>
           <View style={{ alignItems: "center" }}>
             <Text style={{ color: "white", fontSize: 18, fontWeight: "bold" }}>
-              123
+              2
             </Text>
             <Text style={{ color: "#d6d3d3", fontSize: 12 }}>Model Rank</Text>
           </View>
           <View style={{ alignItems: "center" }}>
             <Text style={{ color: "white", fontSize: 18, fontWeight: "bold" }}>
-              1M
+              921.74K
             </Text>
             <Text style={{ color: "#d6d3d3", fontSize: 12 }}>Subscribers</Text>
           </View>
