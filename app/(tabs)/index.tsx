@@ -24,7 +24,7 @@ export default function HomeScreen() {
     contactNumber: "",
   });
 
-  const [date, setDate] = useState(new Date());
+  const [date, setDate] = useState<Date | null>(null);
   const [showPicker, setShowPicker] = useState(false);
 
   useFocusEffect(
@@ -36,7 +36,8 @@ export default function HomeScreen() {
         email: "",
         contactNumber: "",
       });
-      setDate(new Date());
+      setDate(null);
+      setShowPicker(false);
     }, []),
   );
 
@@ -48,14 +49,17 @@ export default function HomeScreen() {
       setShowPicker(false);
       return;
     }
-    const picked = selectedDate || date;
+
+    const picked = selectedDate ?? date ?? new Date();
     setShowPicker(Platform.OS === "ios");
     setDate(picked);
+
     const formatted = picked.toLocaleDateString("en-US", {
       year: "numeric",
       month: "long",
       day: "numeric",
     });
+
     setForm((prev) => ({ ...prev, dob: formatted }));
   };
 
@@ -85,9 +89,10 @@ export default function HomeScreen() {
           </View>
         </View>
       </View>
+
       <View style={styles.accentBar} />
 
-      <View style={{ paddingRight: 20, paddingLeft: 20, paddingTop: 20 }}>
+      <View style={{ paddingHorizontal: 20, paddingTop: 20 }}>
         <Text style={{ fontSize: 24, color: "white", fontWeight: "bold" }}>
           Top Pinoy in the Philippines
         </Text>
@@ -107,7 +112,7 @@ export default function HomeScreen() {
             <Text style={styles.nameText}>Dan Anton Bejec</Text>
             <FontAwesome name="check-circle" size={24} color="#ffa31a" />
           </View>
-          <Text style={{ color: "white", fontSize: 12 }}>
+          <Text style={styles.caption}>
             Nag-Marites sa Gabi, Nabisto ang Katabi!
           </Text>
         </TouchableOpacity>
@@ -125,7 +130,7 @@ export default function HomeScreen() {
             <Text style={styles.nameText}>Jodice Pacibe</Text>
             <FontAwesome name="check-circle" size={24} color="#ffa31a" />
           </View>
-          <Text style={{ color: "white", fontSize: 12 }}>
+          <Text style={styles.caption}>
             Sa Kanto Nagkwento, Sa Huli May Eskandalo!
           </Text>
         </TouchableOpacity>
@@ -143,7 +148,7 @@ export default function HomeScreen() {
             <Text style={styles.nameText}>Roy Adrian Rondina</Text>
             <FontAwesome name="check-circle" size={24} color="#ffa31a" />
           </View>
-          <Text style={{ color: "white", fontSize: 12 }}>
+          <Text style={styles.caption}>
             Sa Story Nag-Glory, Sa Huli May Sorry!
           </Text>
         </TouchableOpacity>
@@ -161,7 +166,7 @@ export default function HomeScreen() {
             <Text style={styles.nameText}>Edmark Talingting</Text>
             <FontAwesome name="check-circle" size={24} color="#ffa31a" />
           </View>
-          <Text style={{ color: "white", fontSize: 12 }}>
+          <Text style={styles.caption}>
             May Mister sa Dilim, May Lihim sa Ilalim!
           </Text>
         </TouchableOpacity>
@@ -179,7 +184,7 @@ export default function HomeScreen() {
             <Text style={styles.nameText}>John Lorenzo Flores</Text>
             <FontAwesome name="check-circle" size={24} color="#ffa31a" />
           </View>
-          <Text style={{ color: "white", fontSize: 12 }}>
+          <Text style={styles.caption}>
             Si Kabit na Makulit, Nahuli sa Sulok ng Pilit!
           </Text>
         </TouchableOpacity>
@@ -199,12 +204,20 @@ export default function HomeScreen() {
           />
 
           <Text style={styles.label}>Date of Birth</Text>
+
           {Platform.OS === "web" ? (
             <input
               type="date"
+              value={date ? date.toISOString().split("T")[0] : ""}
               max={new Date().toISOString().split("T")[0]}
               onChange={(e) => {
+                if (!e.target.value) {
+                  setDate(null);
+                  setForm({ ...form, dob: "" });
+                  return;
+                }
                 const picked = new Date(e.target.value);
+                setDate(picked);
                 const formatted = picked.toLocaleDateString("en-US", {
                   year: "numeric",
                   month: "long",
@@ -216,16 +229,11 @@ export default function HomeScreen() {
                 backgroundColor: "#1e1e1e",
                 color: "white",
                 borderRadius: 8,
-                paddingLeft: 14,
-                paddingRight: 14,
-                paddingTop: 12,
-                paddingBottom: 12,
+                padding: 12,
                 fontSize: 15,
-                borderWidth: 1,
-                borderColor: "#333",
-                borderStyle: "solid",
+                border: "1px solid #333",
                 width: "100%",
-                boxSizing: "border-box",
+                boxSizing: 'border-box',
                 outline: "none",
                 cursor: "pointer",
               }}
@@ -246,7 +254,7 @@ export default function HomeScreen() {
 
               {showPicker && (
                 <DateTimePicker
-                  value={date}
+                  value={date ?? new Date()}
                   mode="date"
                   display={Platform.OS === "ios" ? "spinner" : "default"}
                   maximumDate={new Date()}
@@ -284,10 +292,12 @@ export default function HomeScreen() {
             keyboardType="phone-pad"
             maxLength={11}
             value={form.contactNumber}
-            onChangeText={(val) => {
-              const numericOnly = val.replace(/[^0-9]/g, "");
-              setForm({ ...form, contactNumber: numericOnly });
-            }}
+            onChangeText={(val) =>
+              setForm({
+                ...form,
+                contactNumber: val.replace(/[^0-9]/g, ""),
+              })
+            }
           />
         </View>
 
@@ -340,6 +350,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   nameText: { fontSize: 16, color: "white", flex: 1 },
+  caption: { color: "white", fontSize: 12 },
   inputsContainer: { padding: 20, gap: 16 },
   inputsCard: {
     padding: 20,
