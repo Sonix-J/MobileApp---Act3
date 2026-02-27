@@ -5,14 +5,67 @@ import {
   Image,
   TouchableOpacity,
   ScrollView,
+  TextInput,
+  Platform,
 } from "react-native";
-import { LinearGradient } from "expo-linear-gradient";
-import { router } from "expo-router";
-import { SafeAreaView } from "react-native-safe-area-context";
-import { HeaderHeightContext } from "@react-navigation/elements";
+import { router, useFocusEffect } from "expo-router";
 import { FontAwesome } from "@expo/vector-icons";
+import { useState, useCallback } from "react";
+import DateTimePicker, {
+  DateTimePickerEvent,
+} from "@react-native-community/datetimepicker";
 
 export default function HomeScreen() {
+  const [form, setForm] = useState({
+    fullName: "",
+    dob: "",
+    address: "",
+    email: "",
+    contactNumber: "",
+  });
+
+  const [date, setDate] = useState(new Date());
+  const [showPicker, setShowPicker] = useState(false);
+
+  useFocusEffect(
+    useCallback(() => {
+      setForm({
+        fullName: "",
+        dob: "",
+        address: "",
+        email: "",
+        contactNumber: "",
+      });
+      setDate(new Date());
+    }, []),
+  );
+
+  const handleDateChange = (
+    event: DateTimePickerEvent,
+    selectedDate?: Date,
+  ) => {
+    if (event.type === "dismissed") {
+      setShowPicker(false);
+      return;
+    }
+    const picked = selectedDate || date;
+    setShowPicker(Platform.OS === "ios");
+    setDate(picked);
+    const formatted = picked.toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    });
+    setForm((prev) => ({ ...prev, dob: formatted }));
+  };
+
+  const handleSubmit = () => {
+    router.push({
+      pathname: "/display",
+      params: form,
+    });
+  };
+
   return (
     <ScrollView style={styles.screenLayout}>
       <View style={styles.headerContainer}>
@@ -39,6 +92,7 @@ export default function HomeScreen() {
           Top Pinoy in the Philippines
         </Text>
       </View>
+
       <View style={styles.cardContainer}>
         <TouchableOpacity
           style={styles.cardWrapper}
@@ -130,15 +184,123 @@ export default function HomeScreen() {
           </Text>
         </TouchableOpacity>
       </View>
+
+      <View style={styles.inputsContainer}>
+        <View style={styles.inputsCard}>
+          <Text style={styles.formTitle}>Enter Your Details</Text>
+
+          <Text style={styles.label}>Full Name</Text>
+          <TextInput
+            style={styles.input}
+            placeholder="Enter full name"
+            placeholderTextColor="#666"
+            value={form.fullName}
+            onChangeText={(val) => setForm({ ...form, fullName: val })}
+          />
+
+          <Text style={styles.label}>Date of Birth</Text>
+          {Platform.OS === "web" ? (
+            <input
+              type="date"
+              max={new Date().toISOString().split("T")[0]}
+              onChange={(e) => {
+                const picked = new Date(e.target.value);
+                const formatted = picked.toLocaleDateString("en-US", {
+                  year: "numeric",
+                  month: "long",
+                  day: "numeric",
+                });
+                setForm({ ...form, dob: formatted });
+              }}
+              style={{
+                backgroundColor: "#1e1e1e",
+                color: "white",
+                borderRadius: 8,
+                paddingLeft: 14,
+                paddingRight: 14,
+                paddingTop: 12,
+                paddingBottom: 12,
+                fontSize: 15,
+                borderWidth: 1,
+                borderColor: "#333",
+                borderStyle: "solid",
+                width: "100%",
+                boxSizing: "border-box",
+                outline: "none",
+                cursor: "pointer",
+              }}
+            />
+          ) : (
+            <>
+              <TouchableOpacity
+                style={styles.dateInput}
+                onPress={() => setShowPicker(true)}
+              >
+                <Text
+                  style={form.dob ? styles.dateText : styles.datePlaceholder}
+                >
+                  {form.dob || "Select date of birth"}
+                </Text>
+                <FontAwesome name="calendar" size={16} color="#666" />
+              </TouchableOpacity>
+
+              {showPicker && (
+                <DateTimePicker
+                  value={date}
+                  mode="date"
+                  display={Platform.OS === "ios" ? "spinner" : "default"}
+                  maximumDate={new Date()}
+                  onChange={handleDateChange}
+                />
+              )}
+            </>
+          )}
+
+          <Text style={styles.label}>Home Address</Text>
+          <TextInput
+            style={styles.input}
+            placeholder="Enter your address"
+            placeholderTextColor="#666"
+            value={form.address}
+            onChangeText={(val) => setForm({ ...form, address: val })}
+          />
+
+          <Text style={styles.label}>Email</Text>
+          <TextInput
+            style={styles.input}
+            placeholder="e.g. juan@email.com"
+            placeholderTextColor="#666"
+            keyboardType="email-address"
+            autoCapitalize="none"
+            value={form.email}
+            onChangeText={(val) => setForm({ ...form, email: val })}
+          />
+
+          <Text style={styles.label}>Contact Number</Text>
+          <TextInput
+            style={styles.input}
+            placeholder="e.g. 09XXXXXXXXX"
+            placeholderTextColor="#666"
+            keyboardType="phone-pad"
+            maxLength={11}
+            value={form.contactNumber}
+            onChangeText={(val) => {
+              const numericOnly = val.replace(/[^0-9]/g, "");
+              setForm({ ...form, contactNumber: numericOnly });
+            }}
+          />
+        </View>
+
+        <TouchableOpacity style={styles.submitButton} onPress={handleSubmit}>
+          <Text style={{ fontWeight: "bold", fontSize: 16 }}>Submit</Text>
+        </TouchableOpacity>
+      </View>
     </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
-  screenLayout: {
-    flex: 1,
-    backgroundColor: "#191919",
-  },
+  screenLayout: { flex: 1, backgroundColor: "#191919" },
   headerContainer: {
     flexDirection: "row",
     justifyContent: "center",
@@ -150,11 +312,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: "#1e1e1e",
   },
-  accentBar: {
-    height: 3,
-    backgroundColor: "#ffa31a",
-    opacity: 0.85,
-  },
+  accentBar: { height: 3, backgroundColor: "#ffa31a", opacity: 0.85 },
   headerText: {
     color: "white",
     fontSize: 28,
@@ -174,24 +332,55 @@ const styles = StyleSheet.create({
     gap: 20,
     padding: 20,
   },
-  cardWrapper: {
-    minWidth: 280,
-    maxWidth: 350,
-    flex: 1,
-    gap: 5,
-  },
-  profileImage: {
-    width: "100%",
-    height: 200,
-  },
+  cardWrapper: { minWidth: 280, maxWidth: 350, flex: 1, gap: 5 },
+  profileImage: { width: "100%", height: 200 },
   nameContainer: {
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
   },
-  nameText: {
-    fontSize: 16,
+  nameText: { fontSize: 16, color: "white", flex: 1 },
+  inputsContainer: { padding: 20, gap: 16 },
+  inputsCard: {
+    padding: 20,
+    backgroundColor: "#292929",
+    borderRadius: 10,
+    gap: 6,
+  },
+  formTitle: {
     color: "white",
-    flex: 1,
+    fontSize: 18,
+    fontWeight: "bold",
+    marginBottom: 10,
+  },
+  label: { color: "#aaa", fontSize: 13, marginTop: 8 },
+  input: {
+    backgroundColor: "#1e1e1e",
+    color: "white",
+    borderRadius: 8,
+    paddingHorizontal: 14,
+    paddingVertical: 12,
+    fontSize: 15,
+    borderWidth: 1,
+    borderColor: "#333",
+  },
+  dateInput: {
+    backgroundColor: "#1e1e1e",
+    borderRadius: 8,
+    paddingHorizontal: 14,
+    paddingVertical: 12,
+    borderWidth: 1,
+    borderColor: "#333",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
+  dateText: { color: "white", fontSize: 15 },
+  datePlaceholder: { color: "#666", fontSize: 15 },
+  submitButton: {
+    backgroundColor: "#ffa31a",
+    paddingVertical: 16,
+    borderRadius: 8,
+    alignItems: "center",
   },
 });
