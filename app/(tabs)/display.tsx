@@ -29,9 +29,10 @@ function calculateAge(dob: string): string {
 }
 
 export default function Index2() {
-  const { fullName, dob, address, email, contactNumber } =
+  const { firstName, lastName, dob, address, email, contactNumber } =
     useLocalSearchParams<{
-      fullName: string;
+      firstName: string;
+      lastName: string;
       dob: string;
       address: string;
       email: string;
@@ -46,7 +47,7 @@ export default function Index2() {
   };
 
   const fields: Field[] = [
-    { label: "Full Name", value: fullName },
+    { label: "Full Name", value: firstName +  " " + lastName},
     { label: "Date of Birth", value: dob },
     { label: "Age", value: age },
     { label: "Home Address", value: address },

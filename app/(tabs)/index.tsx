@@ -17,7 +17,9 @@ import DateTimePicker, {
 
 export default function HomeScreen() {
   const [form, setForm] = useState({
-    fullName: "",
+    // fullName: "",
+    firstName: "",
+    lastName: "",
     dob: "",
     address: "",
     email: "",
@@ -30,7 +32,8 @@ export default function HomeScreen() {
   useFocusEffect(
     useCallback(() => {
       setForm({
-        fullName: "",
+        firstName: "",
+        lastName: "",
         dob: "",
         address: "",
         email: "",
@@ -197,10 +200,17 @@ export default function HomeScreen() {
           <Text style={styles.label}>Full Name</Text>
           <TextInput
             style={styles.input}
-            placeholder="Enter full name"
+            placeholder="Enter first name"
             placeholderTextColor="#666"
-            value={form.fullName}
-            onChangeText={(val) => setForm({ ...form, fullName: val })}
+            value={form.firstName}
+            onChangeText={(val) => setForm({ ...form, firstName: val })}
+          />
+          <TextInput
+            style={styles.input}
+            placeholder="Enter last name"
+            placeholderTextColor="#666"
+            value={form.lastName}
+            onChangeText={(val) => setForm({ ...form, lastName: val })}
           />
 
           <Text style={styles.label}>Date of Birth</Text>
@@ -233,7 +243,7 @@ export default function HomeScreen() {
                 fontSize: 15,
                 border: "1px solid #333",
                 width: "100%",
-                boxSizing: 'border-box',
+                boxSizing: "border-box",
                 outline: "none",
                 cursor: "pointer",
               }}
