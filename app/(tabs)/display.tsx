@@ -47,7 +47,7 @@ export default function Index2() {
   };
 
   const fields: Field[] = [
-    { label: "Full Name", value: firstName +  " " + lastName},
+    { label: "Full Name", value: firstName + " " + lastName },
     { label: "Date of Birth", value: dob },
     { label: "Age", value: age },
     { label: "Home Address", value: address },
@@ -62,7 +62,7 @@ export default function Index2() {
     >
       <View style={styles.headerContainer}>
         <TouchableOpacity
-          onPress={() => router.back()}
+          onPress={() => router.push("/")}
           style={styles.backButton}
         >
           <FontAwesome name="arrow-left" size={18} color="white" />
